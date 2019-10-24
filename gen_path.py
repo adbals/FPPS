@@ -25,7 +25,6 @@ def waypoint (gps_points,instanceName):
     
     init_coord = [float(x) for x in [lat,long]]
     n= nearest(init_coord,gps_points).tolist()
-    print(n)
     
     # Sort file according to nearest point to Home 
     d = gps_points.tolist()
@@ -33,11 +32,8 @@ def waypoint (gps_points,instanceName):
     k = np.split(gps_points,(m,len(gps_points)))[1]
     l = np.split(gps_points,(m,len(gps_points)))[0]
     gpss_points = np.vstack((k,l))
-    print(gpss_points)
                     
-    
-    
-    
+    #Visualize Path
     x=[]
     y=[]
     for row in gpss_points:
