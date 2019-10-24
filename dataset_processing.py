@@ -15,7 +15,7 @@ class dataset_processing:
 		counter = 0
 		for node in np.loadtxt("%s/%s_xy.txt" %(self.dataDir, self.dsName)):
 			self.nodeDict[counter] = node
-			counter += 1
+			counter += 1 
 	def converter(self,pathlist):
 		converted = []
 		numNodes = len(self.adjMatrix)

@@ -3,9 +3,6 @@ import operator
 import numpy as np
 import disjoint_sets as DS
 from scipy.spatial import ConvexHull
-from scipy.sparse.csgraph import minimum_spanning_tree
-import networkx.algorithms as naa
-import networkx as nx
 
 
 class Algorithms:

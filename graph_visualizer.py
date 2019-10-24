@@ -38,7 +38,7 @@ class graph_visualizer:
 		for i in range(0,len(algEdges)):
 		    G = nx.Graph()
 		    G.add_nodes_from(dataGraph.nodeDict.keys())
-		    nx.draw_networkx_nodes(G,dataGraph.nodeDict,node_size=10,nodelist = dataGraph.nodeDict.keys(),node_color='r')
+		    nx.draw_networkx_nodes(G,dataGraph.nodeDict,node_size=20,nodelist = dataGraph.nodeDict.keys(),node_color='r')
 		    #For Visualization of Convex Hull Paths formed by algorithm, visualTour[i]
 		    nx.draw_networkx_edges(G,dataGraph.nodeDict, edgelist = algEdges[i])
 		    dtry = "%s/%s%s.png" % (directory,alg,i)

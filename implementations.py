@@ -1,12 +1,10 @@
-import networkx as nx
 import Graph_TSP as Graph
 import dataset_processing as D
 import numpy as np
-import matplotlib.pyplot as plt
-import os
 import adjMatrix as adj
 import graph_visualizer as graphVis
-from functools import partial
+import gen_path as GP
+from collections import defaultdict
 
 #Data directory names
 dataDir = "datasetTSP"
@@ -62,5 +60,37 @@ if (vis_response.lower() in ['y','yes']):
 	print("\nCreating your graph visualizations...")
 	graph_visuals = graphVis.graph_visualizer(solExist)
 	graph_visuals.snapshotMaker(instance_graph)
+
+######################
+###PROCESSING OUT#####
+######################
     
+adjx = defaultdict(set)
+for x, y in convHullTour:
+    adjx[x].add(y)
+    adjx[y].add(x)
+
+col = defaultdict(int)
+def dfs(x, parent=None):
+    if col[x] == 1: return True
+    if col[x] == 2: return False
+    col[x] = 1
+    res = False
+    for y in adjx[x]:
+        if y == parent: continue
+        if dfs(y, x): res = True
+    col[x] = 2
+    return res
+
+for x in adjx:
+    if dfs(x):
+        print ("Path generated!")
+
+coord_list = list(nodeDict.values())        
+path = list(col.keys())
+gps_points = np.array([coord_list[i] for i in path])
+
+waypoint = GP.waypoint(gps_points,instanceName)
+
+
 print('DONE!')

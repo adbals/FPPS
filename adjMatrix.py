@@ -16,7 +16,6 @@ def distance_points(point_a,point_b):
     c = 2*asin(sqrt(a))
     return R*c*1000
 
-
 def createAdjMatrixFile(fileName):
     dirName = "datasetTSP/%s/%s_xy.txt" % (fileName, fileName)
     data = pd.read_csv(dirName,header = None,  delimiter=r"\s+").as_matrix()
