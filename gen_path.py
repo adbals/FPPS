@@ -48,8 +48,8 @@ def waypoint (gps_points,instanceName):
         x = 3*i+1
         y = 3*i+2
         z = 3*i+3
-        file.write ('\n'+str(x)+'\t0\t3\t16\t1\t0\t0\t0\t'+str(gpss_points[i, 0])+'\t'+str(gpss_points[i, 1])+'\t'+str(hgt)+'\t1\n'+str(y)+'\t0\t3\t184\t6\t1900\t1\t'+str((int(spraytime)*2))+'	0	0	0	1')
-        file.write ('\n'+str(z)+'\t0\t3\t184\t'+str(spraytime)+'\t0\t0\t0\t0\t0\t0\t1')
+        file.write ('\n'+str(x)+'\t0\t3\t16\t1\t0\t0\t0\t'+str(gpss_points[i, 0])+'\t'+str(gpss_points[i, 1])+'\t'+str(hgt)+'\t1\n'+str(y)+'\t0\t3\t184\t9\t1900\t1\t'+str((int(spraytime)*2))+'	0	0	0	1')
+        file.write ('\n'+str(z)+'\t0\t3\t93\t'+str(spraytime)+'\t0\t0\t0\t0\t0\t0\t1')
 
     # Write
     file = open("%s/%s_mission.txt"%(instanceName,instanceName),"w")
