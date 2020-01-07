@@ -18,6 +18,20 @@
     `Would you like visualizations for the algorithms? (Y/N):`
     
   5. Insert home location and mission parameters. 
+  
+      `Enter Latitude:`
+      
+      
+      `Enter Longitude:`
+      
+      
+      `Enter Alt:`
+      
+
+      `Enter Mission Height:`
+      
+      `Enter Spray Time:`
+
   6. Upload **_mission.txt**  saved in the **filename** into `MISSION PLANNER`.
   
  
