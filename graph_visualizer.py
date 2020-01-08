@@ -14,7 +14,7 @@ class graph_visualizer:
 	###Create Snapshots
 	######################
 	def snapshotMaker(self,dataGraph):
-		algorithms = ["NearestNeighbor", "Greedy", "ConvHull", "Optimal"]
+		algorithms = ["NearestNeighbor"]
 		newDir = dataGraph.instanceName
 		if not os.path.exists(newDir):
 			os.makedirs(newDir)
@@ -22,16 +22,9 @@ class graph_visualizer:
 			newFolder = "%s/%s" % (dataGraph.instanceName, alg) 
 			if not os.path.exists(newFolder):
 			    os.makedirs(newFolder)
-			if alg == "NearestNeighbor":
-				self.snapshotHelper(dataGraph,dataGraph.nearestNeighbor(),newFolder,alg)
-			if alg == "Greedy":
-				self.snapshotHelper(dataGraph,dataGraph.greedy(), newFolder,alg)
 			if alg == "ConvHull":
 				convHullTour,visualTour = dataGraph.convexhullInsert()
 				self.snapshotConvHelper(dataGraph,visualTour, newFolder,alg)
-			if self.solExist:
-				if alg == "Optimal":
-					self.snapshotHelper(dataGraph,dataGraph.solution, newFolder,alg)
 
 	def snapshotConvHelper(self,dataGraph,algEdges, directory,alg):
 		fig = plt.figure(figsize=(20,20))
