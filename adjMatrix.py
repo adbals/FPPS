@@ -3,10 +3,11 @@ import pandas as pd
 from math import radians,sin,cos,sqrt,asin
 
 def distance_points(point_a,point_b):
-    lat1,lon1= point_a
-    lat2,lon2= point_b
+    lat1,lon1,alt1= point_a
+    lat2,lon2,alt2= point_b
     R = 6371
     
+    dalt = alt2 - alt1
     dLat = radians(lat2 - lat1)
     dLon = radians(lon2 - lon1)
     lat1 = radians (lat1)
@@ -14,7 +15,8 @@ def distance_points(point_a,point_b):
     
     a = sin(dLat/2)**2 + cos(radians(lat1))*cos(radians(lat2))*sin(dLon/2)**2
     c = 2*asin(sqrt(a))
-    return R*c*1000
+    horizontal_dis = R*c*1000
+    return sqrt((horizontal_dis**2)+(dalt**2))
 
 def createAdjMatrixFile(fileName):
     dirName = "datasetTSP/%s/%s_xy.txt" % (fileName, fileName)
