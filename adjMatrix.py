@@ -16,11 +16,11 @@ def distance_points(point_a,point_b):
     a = sin(dLat/2)**2 + cos(radians(lat1))*cos(radians(lat2))*sin(dLon/2)**2
     c = 2*asin(sqrt(a))
     horizontal_dis = R*c*1000
-    return sqrt((horizontal_dis**2)+(dalt**2))
+    return sqrt((horizontal_dis**2)+((dalt*1.5)**2))
 
 def createAdjMatrixFile(fileName):
-    dirName = "datasetTSP/%s/%s_xy.txt" % (fileName, fileName)
-    data = pd.read_csv(dirName,header = None,  delimiter=r"\s+").as_matrix()
+    dirName = "datasetTSP/%s/%s_xyz.txt" % (fileName, fileName)
+    data = pd.read_csv(dirName,header = None,  delimiter=r"\s+").to_numpy()
     newMatrix = np.zeros((len(data),len(data)))
     for i in range(len(data)):
         for j in range(len(data)):
