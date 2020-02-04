@@ -13,7 +13,7 @@ class dataset_processing:
 		else:
 			self.solution = -1
 		counter = 0
-		for node in np.loadtxt("%s/%s_xy.txt" %(self.dataDir, self.dsName)):
+		for node in np.loadtxt("%s/%s_xyz.txt" %(self.dataDir, self.dsName)):
 			self.nodeDict[counter] = node
 			counter += 1 
 	def converter(self,pathlist):
