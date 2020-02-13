@@ -1,4 +1,1 @@
-# Testing
-
-# Algorithm in test
-Flood Fill Algorithm
+# Zig Zag Algorithm (2D & 3D)
